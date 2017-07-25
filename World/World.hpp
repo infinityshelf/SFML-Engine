@@ -2,7 +2,10 @@
 #define WORLD_HPP
 
 #include <vector>
-#include "../Entity/Entity.hpp"
+#include "../Entity.hpp"
+#include <SFML/Graphics.hpp>
+
+class Entity;
 
 class World {
 private:
@@ -19,7 +22,7 @@ public:
     void addEntity(Entity *entity);
     void removeEntity(Entity *entity);
     ~World();
-    void update(double elapsed);
+    void update(double elapsed, sf::RenderWindow &window);
 };
 
 #endif

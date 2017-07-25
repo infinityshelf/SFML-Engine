@@ -8,14 +8,17 @@ all:
 run: $(PROJECT)
 	./$(PROJECT) $(PROJECT)
 
-$(PROJECT): main.o World.o
-	g++ $(CFLAGS) main.o World.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
+$(PROJECT): main.o World.o Player.o
+	g++ $(CFLAGS) main.o World.o Player.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
 
 main.o: main.cpp
 	g++ $(CFLAGS) -c main.cpp
 
-World.o: World/World.cpp World/World.hpp
-	g++ $(CFLAGS) -c World/World.cpp
+World.o: World.cpp World.hpp
+	g++ $(CFLAGS) -c World.cpp
+
+Player.o: Player.hpp Player.cpp Entity.hpp
+	g++ $(CFLAGS) -c Player.cpp
 
 clean:
 	rm *.o

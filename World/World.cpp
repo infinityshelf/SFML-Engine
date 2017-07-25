@@ -1,7 +1,7 @@
 #include "World.hpp"
 #include <iostream>
 
-const bool debug = true;
+const bool debug = false;
 World *World::s_instance = nullptr;
 
 World::World() {
@@ -33,8 +33,14 @@ void World::removeEntity(Entity *entity) {
     this->entities.erase(std::remove(this->entities.begin(), this->entities.end(), entity), this->entities.end());
 }
 
-void World::update(double elapsed) {
+void World::update(double elapsed, sf::RenderWindow &window) {
+    static double avg=0.0;
+    avg = (avg + elapsed) / 2.0;
     if (debug) {
         std::cout << "elapsed: " << elapsed << std::endl;
+        std::cout << "average: " << avg << std::endl;
+    }
+    for (Entity *entity: entities) {
+        entity->update(elapsed, window);
     }
 }
