@@ -13,7 +13,7 @@ set(SOURCE_FILES
         ${PLAYER}/Player.cpp
         ${PLAYER}/Player.hpp
         ${WORLD}/World.cpp
-        ${WORLD}/World.hpp)
+        ${WORLD}/World.hpp Input/Input.cpp Input/Input.hpp Input/InputStruct.hpp Input/InputListener.hpp)
 
 add_executable(SFML_Engine ${SOURCE_FILES})
 

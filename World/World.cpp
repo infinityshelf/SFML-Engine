@@ -34,7 +34,8 @@ void World::removeEntity(Entity *entity) {
 }
 
 void World::update(double elapsed, sf::RenderWindow &window) {
-    static double avg=0.0;
+    window.clear(sf::Color::Black);
+    static double avg;
     avg = (avg + elapsed) / 2.0;
     if (debug) {
         std::cout << "elapsed: " << elapsed << std::endl;
@@ -43,4 +44,5 @@ void World::update(double elapsed, sf::RenderWindow &window) {
     for (Entity *entity: entities) {
         entity->update(elapsed, window);
     }
+    window.display();
 }

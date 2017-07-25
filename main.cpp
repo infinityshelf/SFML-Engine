@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "World/World.hpp"
 #include "Player/Player.hpp"
+#include "Input/Input.hpp"
 
 const int targetFrameRate = 60;
 
@@ -18,25 +19,15 @@ int main(int argc, char const *argv[]) {
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(false);
 
+    Input *input = Input::instance();
+
     // Game Loop
     sf::Clock elapsedClock;
-    double elapsed = elapsedClock.restart().asMilliseconds();
+    static double elapsed;
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Escape) {
-                    window.close();
-                }
-            }
-        }
         elapsed = elapsedClock.restart().asMilliseconds() / (1000.0 / (double) targetFrameRate);
-        window.clear(sf::Color::Black);
+        input->getInput(window);
         world->update(elapsed, window);
-        window.display();
     }
 
     return EXIT_SUCCESS;
