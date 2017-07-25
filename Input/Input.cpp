@@ -16,7 +16,20 @@ Input::~Input() {
 }
 
 void Input::addListener(InputListener *listener) {
-    this->listeners.push_back(listener);
+    bool shouldAdd = true;
+    for (InputListener *anInputListener : this->listeners) {
+        if (anInputListener == listener) {
+            shouldAdd = false;
+            break;
+        }
+    }
+    if (shouldAdd == true) {
+        this->listeners.push_back(listener);
+    } else {
+        if (debug == true) {
+            std::cout << "that listener is already in the Inputs listeners" << std::endl;
+        }
+    }
 }
 
 void Input::removeListener(InputListener *listener) {
