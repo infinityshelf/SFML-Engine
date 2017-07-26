@@ -1,0 +1,16 @@
+//
+// Created by Estevan Hernandez on 7/25/17.
+//
+
+#ifndef SFML_ENGINE_INPUTCOMPONENT_HPP
+#define SFML_ENGINE_INPUTCOMPONENT_HPP
+
+#include "InputStruct.hpp"
+#include "Entity.hpp"
+
+class InputComponent {
+    virtual void update(Entity &entity, sf::RenderWindow &window_ref) = 0;
+};
+
+
+#endif //SFML_ENGINE_INPUTCOMPONENT_HPP

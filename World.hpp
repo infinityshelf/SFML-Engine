@@ -2,7 +2,7 @@
 #define WORLD_HPP
 
 #include <vector>
-#include "../Entity.hpp"
+#include "Entity.hpp"
 #include <SFML/Graphics.hpp>
 
 class Entity;

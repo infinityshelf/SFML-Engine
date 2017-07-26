@@ -2,18 +2,27 @@ cmake_minimum_required(VERSION 3.7)
 project(SFML_Engine)
 
 set(CMAKE_CXX_STANDARD 14)
-set(PLAYER ./Player)
-set(WORLD ./World)
-include_directories(${PLAYER})
-include_directories(${WORLD})
+#set(PLAYER ./Player)
+#set(WORLD ./World)
+#include_directories(${PLAYER})
+#include_directories(${WORLD})
 
 set(SOURCE_FILES
         Entity.hpp
         main.cpp
-        ${PLAYER}/Player.cpp
-        ${PLAYER}/Player.hpp
-        ${WORLD}/World.cpp
-        ${WORLD}/World.hpp Input/Input.cpp Input/Input.hpp Input/InputStruct.hpp Input/InputListener.hpp)
+        Player.cpp
+        Player.hpp
+        World.cpp
+        World.hpp
+        Input.cpp
+        Input.hpp
+        InputStruct.hpp
+        InputListener.hpp
+        GraphicsComponent.hpp
+        PlayerGraphicsComponent.cpp
+        PlayerGraphicsComponent.hpp
+        InputComponent.hpp
+        PlayerInputComponent.hpp)
 
 add_executable(SFML_Engine ${SOURCE_FILES})
 
