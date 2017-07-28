@@ -9,7 +9,7 @@
 class Player: public Entity {
 public:
     Player(GraphicsComponent *graphics, InputComponent *input):graphics_(graphics), input_(input) {
-
+        
     };
     ~Player();
     void update(double elapsed, sf::RenderWindow &window) override;

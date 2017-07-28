@@ -7,6 +7,7 @@
 
 class Entity {
 public:
+    sf::Vector2f position;
     virtual void update(double elapsed, sf::RenderWindow &window_ref) = 0;
 };
 

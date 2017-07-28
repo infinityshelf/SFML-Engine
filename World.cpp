@@ -34,7 +34,7 @@ void World::removeEntity(Entity *entity) {
 }
 
 void World::update(double elapsed, sf::RenderWindow &window) {
-    window.clear(sf::Color::Black);
+    window.clear(sf::Color::White);
     static double avg;
     avg = (avg + elapsed) / 2.0;
     if (debug) {

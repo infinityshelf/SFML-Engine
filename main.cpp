@@ -13,7 +13,7 @@ const int targetFrameRate = 60;
 int main(int argc, char const *argv[]) {
     std::cout << argc << std::endl;
 
-    sf::RenderWindow window(sf::VideoMode(1920, 1080, 8), argv[1], sf::Style::Titlebar|sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(240, 160, 8), argv[1], sf::Style::Titlebar|sf::Style::Close|sf::Style::Resize);
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(false);
     window.setKeyRepeatEnabled(false);

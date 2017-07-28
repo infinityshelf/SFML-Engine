@@ -8,8 +8,8 @@ all:
 run: $(PROJECT)
 	./$(PROJECT) $(PROJECT)
 
-$(PROJECT): main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o
-	g++ $(CFLAGS) main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
+$(PROJECT): main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o
+	g++ $(CFLAGS) main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
 
 main.o: main.cpp
 	g++ $(CFLAGS) -c main.cpp
@@ -28,6 +28,9 @@ PlayerInputComponent.o: PlayerInputComponent.cpp PlayerInputComponent.hpp InputC
 
 PlayerGraphicsComponent.o: PlayerGraphicsComponent.cpp PlayerGraphicsComponent.hpp GraphicsComponent.hpp
 	g++ $(CFLAGS) -c PlayerGraphicsComponent.cpp
+
+TextureManager.o: TextureManager.cpp TextureManager.hpp
+	g++ $(CFLAGS) -c TextureManager.cpp	
 
 clean:
 	rm *.o

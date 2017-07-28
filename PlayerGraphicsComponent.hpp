@@ -11,7 +11,11 @@
 class Player;
 
 class PlayerGraphicsComponent: public GraphicsComponent {
+private:
+    sf::Sprite sprite;
+    sf::Texture texture;
 public:
+    PlayerGraphicsComponent();
     void update(Entity &entity, sf::RenderWindow &window_ref) override;
 };
 
