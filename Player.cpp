@@ -9,6 +9,6 @@ Player::~Player() {
 
 void Player::update(double elapsed, sf::RenderWindow &window_ref) {
     if (debug) std::cout << "elapsed: " << elapsed << std::endl;
-    input_->update(*this, window_ref);
+    input_->update(*this);
     graphics_->update(*this, window_ref);
 }

@@ -8,7 +8,7 @@
 
 const bool debug = false;
 
-void PlayerInputComponent::update(Entity &entity, sf::RenderWindow &window_ref) {
+void PlayerInputComponent::update(Entity &entity) {
     if (debug) std::cout << "Entity: " << &entity << " PlayerInputComponent::update" << std::endl;
-    if (debug) std::cout << "window_ref: " << &window_ref << std::endl;
+    if (debug) Input::inputStruct.log();
 }

@@ -7,7 +7,7 @@
 Input *Input::s_instance = nullptr;
 InputStruct Input::inputStruct = InputStruct();
 
-const bool debug = true;
+const bool debug = false;
 
 Input::Input() {
 
