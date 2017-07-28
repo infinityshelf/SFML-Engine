@@ -17,10 +17,6 @@ Input::~Input() {
 }
 
 void Input::clearInput() {
-    inputStruct.up = false;
-    inputStruct.down = false;
-    inputStruct.left = false;
-    inputStruct.right = false;
     inputStruct.upPressed = false;
     inputStruct.downPressed = false;
     inputStruct.leftPressed = false;
@@ -33,7 +29,7 @@ void Input::clearInput() {
 }
 
 void Input::getInput(sf::RenderWindow &window) {
-    Input::clearInput();
+    clearInput();
     sf::Event event;
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed) {

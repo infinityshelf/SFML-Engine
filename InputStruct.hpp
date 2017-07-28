@@ -22,14 +22,14 @@ struct INPUT_STRUCT {
     bool rightReleased = false;
     bool spacePressed = false;
     void log() {
-        if (up) std::cout << "up" << std::endl;
-        if (down) std::cout << "down" << std::endl;
-        if (left) std::cout << "left" << std::endl;
-        if (right) std::cout << "right" << std::endl;
         if (upPressed) std::cout << "upPressed" << std::endl;
         if (downPressed) std::cout << "downPressed" << std::endl;
         if (leftPressed) std::cout << "leftPressed" << std::endl;
         if (rightPressed) std::cout << "rightPressed" << std::endl;
+        if (up) std::cout << "up" << std::endl;
+        if (down) std::cout << "down" << std::endl;
+        if (left) std::cout << "left" << std::endl;
+        if (right) std::cout << "right" << std::endl;
         if (upReleased) std::cout << "upReleased" << std::endl;
         if (downReleased) std::cout << "downReleased" << std::endl;
         if (leftReleased) std::cout << "leftReleased" << std::endl;

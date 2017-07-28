@@ -26,6 +26,7 @@ public:
     static InputStruct inputStruct;
     static void getInput(sf::RenderWindow &window_ref);
     static void clearInput();
+    static void log();
 };
 
 #endif //SFML_ENGINE_INPUT_HPP

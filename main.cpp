@@ -24,6 +24,7 @@ int main(int argc, char const *argv[]) {
 
     sf::Clock elapsedClock;
     static double elapsed;
+    Input::clearInput();
     while (window.isOpen()) {
         Input::getInput(window);
         elapsed = elapsedClock.restart().asMilliseconds() / (1000.0 / (double) targetFrameRate);
