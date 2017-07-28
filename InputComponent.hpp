@@ -7,8 +7,10 @@
 
 #include "InputStruct.hpp"
 #include "Entity.hpp"
+#include "InputStruct.hpp"
 
 class InputComponent {
+public:
     virtual void update(Entity &entity, sf::RenderWindow &window_ref) = 0;
 };
 

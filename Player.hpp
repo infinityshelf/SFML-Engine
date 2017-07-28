@@ -3,21 +3,19 @@
 
 #include <SFML/Graphics.hpp>
 #include "Entity.hpp"
-#include "PlayerGraphicsComponent.hpp"
-#include "PlayerInputComponent.hpp"
-
-class PlayerGraphicsComponent;
+#include "GraphicsComponent.hpp"
+#include "InputComponent.hpp"
 
 class Player: public Entity {
 public:
-    Player(PlayerGraphicsComponent *graphics, PlayerInputComponent *input):graphics_(graphics), input_(input) {
+    Player(GraphicsComponent *graphics, InputComponent *input):graphics_(graphics), input_(input) {
 
     };
     ~Player();
     void update(double elapsed, sf::RenderWindow &window) override;
 private:
-    PlayerGraphicsComponent *graphics_;
-    PlayerInputComponent *input_;
+    GraphicsComponent *graphics_;
+    InputComponent *input_;
 };
 
 #endif

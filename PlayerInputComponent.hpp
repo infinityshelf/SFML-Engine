@@ -9,9 +9,7 @@
 
 class PlayerInputComponent: public InputComponent {
 public:
-    void update(Entity &entity, sf::RenderWindow &window_ref) override {
-
-    }
+    void update(Entity &entity, sf::RenderWindow &window_ref) override;
 };
 
 

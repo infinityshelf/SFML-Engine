@@ -22,8 +22,8 @@ set(SOURCE_FILES
         PlayerGraphicsComponent.cpp
         PlayerGraphicsComponent.hpp
         InputComponent.hpp
-        PlayerInputComponent.hpp)
+        PlayerInputComponent.hpp PlayerInputComponent.cpp)
 
-add_executable(SFML_Engine ${SOURCE_FILES})
+add_executable(SFML-Engine ${SOURCE_FILES})
 
-target_link_libraries(SFML_Engine -lsfml-graphics -lsfml-window -lsfml-system)
+target_link_libraries(SFML-Engine -lsfml-graphics -lsfml-window -lsfml-system)
