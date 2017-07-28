@@ -23,7 +23,7 @@ Player.o: Player.hpp Player.cpp Entity.hpp
 Input.o: Input.cpp Input.hpp InputStruct.hpp
 	g++ $(CFLAGS) -c Input.cpp
 
-PlayerInputComponent.o: PlayerInputComponent.cpp PlayerInputComponent.hpp InputComponent.hpp InputStruct.hpp
+PlayerInputComponent.o: PlayerInputComponent.cpp PlayerInputComponent.hpp InputComponent.hpp Input.cpp Input.hpp InputStruct.hpp
 	g++ $(CFLAGS) -c PlayerInputComponent.cpp
 
 PlayerGraphicsComponent.o: PlayerGraphicsComponent.cpp PlayerGraphicsComponent.hpp GraphicsComponent.hpp

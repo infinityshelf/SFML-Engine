@@ -9,7 +9,5 @@ const bool debug = false;
 
 void PlayerGraphicsComponent::update(Entity &entity, sf::RenderWindow &window_ref) {
     if (debug) std::cout << "Entity: " << &entity << " PlayerGraphicsComponent::update" << std::endl;
-    for (sf::Drawable *drawable : entity.drawables) {
-        window_ref.draw(*drawable);
-    }
+    if (debug) std::cout << "window_ref" << &window_ref << std::endl;
 }

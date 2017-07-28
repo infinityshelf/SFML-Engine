@@ -11,7 +11,6 @@
 
 class InputComponent {
 public:
-    virtual void update(Entity &entity, sf::RenderWindow &window_ref) = 0;
     virtual void update(Entity &entity) = 0;
 };
 

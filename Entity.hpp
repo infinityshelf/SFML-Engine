@@ -7,7 +7,6 @@
 
 class Entity {
 public:
-    std::vector<sf::Drawable *> drawables;
     virtual void update(double elapsed, sf::RenderWindow &window_ref) = 0;
 };
 
