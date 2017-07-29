@@ -11,7 +11,7 @@
 
 class InputComponent {
 public:
-    virtual void update(Entity &entity) = 0;
+    virtual void update(double elapsed, Entity &entity) = 0;
 };
 
 

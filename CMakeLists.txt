@@ -17,12 +17,15 @@ set(SOURCE_FILES
         Input.cpp
         Input.hpp
         InputStruct.hpp
-        InputListener.hpp
         GraphicsComponent.hpp
         PlayerGraphicsComponent.cpp
         PlayerGraphicsComponent.hpp
         InputComponent.hpp
-        PlayerInputComponent.hpp PlayerInputComponent.cpp)
+        PlayerInputComponent.hpp
+        PlayerInputComponent.cpp
+        TextureManager.cpp
+        TextureManager.hpp
+        )
 
 add_executable(SFML-Engine ${SOURCE_FILES})
 
