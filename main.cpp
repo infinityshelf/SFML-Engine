@@ -8,14 +8,14 @@
 #include "PlayerGraphicsComponent.hpp"
 #include "PlayerInputComponent.hpp"
 
-const int targetFrameRate = 60;
+const int targetFrameRate = 120;
 
 int main(int argc, char const *argv[]) {
     std::cout << argc << std::endl;
 
-    sf::RenderWindow window(sf::VideoMode(240, 160, 8), argv[1], sf::Style::Titlebar|sf::Style::Close|sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(240*4, 160*4, 8), argv[1], sf::Style::Titlebar|sf::Style::Close|sf::Style::Resize);
     window.setFramerateLimit(targetFrameRate);
-    window.setVerticalSyncEnabled(false);
+    window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
 
     World *world = World::instance();
