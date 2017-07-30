@@ -28,12 +28,14 @@ int main(int argc, char const *argv[]) {
     world->addEntity(player);
 
     sf::Clock elapsedClock;
+#if VARIABLE_TIME_STEP
     static double elapsed;
+#endif
     Input::clearInput();
     while (window.isOpen()) {
         Input::getInput(window);
-        elapsed = elapsedClock.restart().asMilliseconds() / (1000.0 / (double) targetFrameRate);
 #if VARIABLE_TIME_STEP
+        elapsed = elapsedClock.restart().asMilliseconds() / (1000.0 / (double) targetFrameRate);
         world->update(elapsed, window);
 #else
         world->update(1.0, window);
