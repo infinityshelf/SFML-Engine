@@ -20,7 +20,11 @@ set(SOURCE_FILES
         PlayerInputComponent.hpp
         PlayerInputComponent.cpp
         TextureManager.cpp
-        TextureManager.hpp PhysicsComponent.hpp PlayerPhysicsComponent.cpp PlayerPhysicsComponent.hpp Component.cpp Component.hpp Component.cpp Component.hpp)
+        TextureManager.hpp
+        PhysicsComponent.hpp
+        PlayerPhysicsComponent.cpp
+        PlayerPhysicsComponent.hpp
+        Component.hpp)
 
 add_executable(SFML-Engine ${SOURCE_FILES})
 
