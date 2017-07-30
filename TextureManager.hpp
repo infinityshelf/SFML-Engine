@@ -4,9 +4,6 @@
 #include <string>
 #include <map>
 
-extern const std::string kRobo;
-extern const std::string kRoboFilePath;
-
 class TextureManager
 {
 private:

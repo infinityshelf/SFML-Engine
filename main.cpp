@@ -7,19 +7,21 @@
 #include "Input.hpp"
 #include "PlayerGraphicsComponent.hpp"
 #include "PlayerInputComponent.hpp"
+#include "PlayerPhysicsComponent.hpp"
 
 const int targetFrameRate = 120;
 
 int main(int argc, char const *argv[]) {
     std::cout << argc << std::endl;
 
-    sf::RenderWindow window(sf::VideoMode(240*4, 160*4, 8), argv[1], sf::Style::Titlebar|sf::Style::Close|sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(240*4, 160*4, 8), argv[1], sf::Style::Titlebar|sf::Style::Close);
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
+    window.setTitle("SFML-Engine");
 
     World *world = World::instance();
-    Player *player = new Player(new PlayerGraphicsComponent, new PlayerInputComponent);
+    Player *player = new Player(new PlayerGraphicsComponent, new PlayerInputComponent, new PlayerPhysicsComponent);
     world->addEntity(player);
 
     sf::Clock elapsedClock;

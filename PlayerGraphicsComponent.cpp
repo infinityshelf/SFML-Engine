@@ -4,9 +4,12 @@
 
 #include "PlayerGraphicsComponent.hpp"
 #include "TextureManager.hpp"
+#include "World.hpp"
 #include <iostream>
 
 const bool debug = false;
+const std::string kRobo = "robo";
+const std::string kRoboFilePath = "robo.png";
 
 PlayerGraphicsComponent::PlayerGraphicsComponent() {
     //sf::Image image;
@@ -20,6 +23,8 @@ PlayerGraphicsComponent::PlayerGraphicsComponent() {
     this->sprite.setTexture(TextureManager::instance()->getRef(kRobo));
     this->sprite.setTextureRect(sf::IntRect(0,0,35,81));
     this->sprite.setScale(3.0f, 3.0f);
+    //this->bounds.width = 35;
+    //this->bounds.height = 81;
 }
 
 void PlayerGraphicsComponent::update(Entity &entity, sf::RenderWindow &window_ref) {

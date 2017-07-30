@@ -7,10 +7,14 @@
 
 #include <SFML/Graphics.hpp>
 #include "Entity.hpp"
+#include "Component.hpp"
 
-class GraphicsComponent {
+class GraphicsComponent: public Component {
 public:
     virtual void update(Entity &entity, sf::RenderWindow &window_ref) = 0;
+    void update() override {
+
+    }
 
 };
 

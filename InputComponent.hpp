@@ -8,10 +8,14 @@
 #include "InputStruct.hpp"
 #include "Entity.hpp"
 #include "InputStruct.hpp"
+#include "Component.hpp"
 
-class InputComponent {
+class InputComponent: public Component {
 public:
     virtual void update(double elapsed, Entity &entity) = 0;
+    void update() override {
+
+    }
 };
 
 

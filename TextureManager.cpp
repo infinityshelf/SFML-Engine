@@ -1,6 +1,5 @@
 #include "TextureManager.hpp"
-const std::string kRobo = "robo";
-const std::string kRoboFilePath = "robo.png";
+
 TextureManager *TextureManager::s_instance = nullptr;
 TextureManager::TextureManager() {
 
