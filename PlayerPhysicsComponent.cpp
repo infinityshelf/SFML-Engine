@@ -5,11 +5,11 @@
 #include "PlayerPhysicsComponent.hpp"
 #include "Player.hpp"
 
-PlayerPhysicsComponent::PlayerPhysicsComponent(Entity &entity, World &world): PhysicsComponent(entity, world) {
+PlayerPhysicsComponent::PlayerPhysicsComponent(Entity &entity): PhysicsComponent(entity) {
     World::instance()->addCollidable(&boundingBox);
     boundingBox.width = 35;
     boundingBox.height = 81;
-    world_.addCollidable(&boundingBox);
+    world_->addCollidable(&boundingBox);
 }
 
 void PlayerPhysicsComponent::update(double elapsed) {

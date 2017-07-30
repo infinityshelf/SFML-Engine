@@ -18,7 +18,7 @@ private:
     sf::Sprite sprite;
     sf::Texture texture;
 public:
-    PlayerGraphicsComponent(Entity &entity, sf::RenderWindow &renderWindow);
+    PlayerGraphicsComponent(Entity &entity);
     void update(double elapsed) override;
 };
 

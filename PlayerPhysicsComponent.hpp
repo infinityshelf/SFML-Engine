@@ -9,7 +9,7 @@
 
 class PlayerPhysicsComponent: public PhysicsComponent {
 public:
-    PlayerPhysicsComponent(Entity &entity, World &world);
+    PlayerPhysicsComponent(Entity &entity);
     //void update(double elapsed, Entity &entity) override;
     void update(double elapsed) override;
 private:

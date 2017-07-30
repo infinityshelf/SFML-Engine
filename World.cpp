@@ -55,7 +55,7 @@ void World::removeCollidable(sf::IntRect *rect) {
 }
 
 void World::update(double elapsed, sf::RenderWindow &window) {
-    window.clear(sf::Color(0x20, 0x00, 0x20, 0xFF));
+    window.clear(sf::Color(0xff, 0x00, 0xff, 0xFF));
     static double avg;
     avg = (avg + elapsed) / 2.0;
     if (debug) {

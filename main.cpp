@@ -21,6 +21,7 @@ int main(int argc, char const *argv[]) {
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
     window.setTitle("SFML-Engine");
+    GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();
     Player *player = new Player(window);

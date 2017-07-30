@@ -7,6 +7,8 @@
 #include "Component.hpp"
 #include <iostream>
 
+class Component;
+
 class Entity {
 public:
     sf::Vector2f position;

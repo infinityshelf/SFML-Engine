@@ -8,7 +8,7 @@
 #include "Player.hpp"
 
 const bool debug = false;
-const uint8_t move = 2;
+const uint8_t move = 5;
 
 void PlayerInputComponent::update(double elapsed) {
     if (debug) std::cout << "Entity: " << &entity_ << " PlayerInputComponent::update" << std::endl;

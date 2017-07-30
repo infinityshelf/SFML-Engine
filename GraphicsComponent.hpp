@@ -11,12 +11,16 @@
 
 class GraphicsComponent: public Component {
 public:
-    GraphicsComponent(Entity &entity, sf::RenderWindow &renderWindow): entity_(entity), renderWindow_(renderWindow) {
+    static void setWindow(sf::RenderWindow *window) {
+        s_window = window;
+    }
+    GraphicsComponent(Entity &entity): entity_(entity), Component() {
 
     }
 protected:
+    static sf::RenderWindow *s_window;
+    //sf::RenderWindow &renderWindow_;
     Entity &entity_;
-    sf::RenderWindow &renderWindow_;
 };
 
 

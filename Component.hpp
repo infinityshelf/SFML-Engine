@@ -5,10 +5,21 @@
 #ifndef SFML_ENGINE_COMPONENT_HPP
 #define SFML_ENGINE_COMPONENT_HPP
 
+#include "Entity.hpp"
+
+class Entity;
 
 class Component {
 public:
     virtual void update(double elapsed) = 0;
+
+    Component();
+    bool operator==(Component &other);
+    int identifier() {return identifier_;}
+
+protected:
+    static int current_id;
+    int identifier_;
 };
 
 

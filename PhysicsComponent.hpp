@@ -11,11 +11,11 @@
 
 class PhysicsComponent: public Component {
 public:
-    PhysicsComponent(Entity &entity, World &world): entity_(entity), world_(world) {
+    PhysicsComponent(Entity &entity): entity_(entity), world_(World::instance()), Component() {
 
     }
 protected:
-    World &world_;
+    World *world_;
     Entity &entity_;
 };
 
