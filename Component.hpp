@@ -7,7 +7,8 @@
 
 
 class Component {
-    virtual void update() = 0;
+public:
+    virtual void update(double elapsed) = 0;
 };
 
 

@@ -9,7 +9,9 @@
 
 class PlayerInputComponent: public InputComponent {
 public:
-    void update(double elapsed, Entity &entity) override;
+    //void update(double elapsed, Entity &entity) override;
+    void update(double elapsed) override;
+    PlayerInputComponent(Entity &entity);
 };
 
 

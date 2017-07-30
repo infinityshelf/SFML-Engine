@@ -10,19 +10,23 @@
 const bool debug = false;
 const uint8_t move = 2;
 
-void PlayerInputComponent::update(double elapsed, Entity &entity) {
-    if (debug) std::cout << "Entity: " << &entity << " PlayerInputComponent::update" << std::endl;
+void PlayerInputComponent::update(double elapsed) {
+    if (debug) std::cout << "Entity: " << &entity_ << " PlayerInputComponent::update" << std::endl;
     if (debug) Input::inputStruct.log();
     if (Input::inputStruct.right) {
-        entity.position.x += move * elapsed;
+        entity_.position.x += move * elapsed;
     }
     if (Input::inputStruct.left) {
-        entity.position.x -= move * elapsed;
+        entity_.position.x -= move * elapsed;
     }
     if (Input::inputStruct.up) {
-        entity.position.y -= move * elapsed;
+        entity_.position.y -= move * elapsed;
     }
     if (Input::inputStruct.down) {
-        entity.position.y += move * elapsed;
+        entity_.position.y += move * elapsed;
     }
+}
+
+PlayerInputComponent::PlayerInputComponent(Entity &entity): InputComponent(entity) {
+
 }

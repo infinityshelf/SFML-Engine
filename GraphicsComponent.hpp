@@ -11,11 +11,12 @@
 
 class GraphicsComponent: public Component {
 public:
-    virtual void update(Entity &entity, sf::RenderWindow &window_ref) = 0;
-    void update() override {
+    GraphicsComponent(Entity &entity, sf::RenderWindow &renderWindow): entity_(entity), renderWindow_(renderWindow) {
 
     }
-
+protected:
+    Entity &entity_;
+    sf::RenderWindow &renderWindow_;
 };
 
 

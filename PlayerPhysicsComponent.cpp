@@ -5,17 +5,14 @@
 #include "PlayerPhysicsComponent.hpp"
 #include "Player.hpp"
 
-PlayerPhysicsComponent::PlayerPhysicsComponent() {
+PlayerPhysicsComponent::PlayerPhysicsComponent(Entity &entity, World &world): PhysicsComponent(entity, world) {
     World::instance()->addCollidable(&boundingBox);
     boundingBox.width = 35;
     boundingBox.height = 81;
-    world = World::instance();
-    world->addCollidable(&boundingBox);
+    world_.addCollidable(&boundingBox);
 }
 
-void PlayerPhysicsComponent::update(double elapsed, Entity &entity) {
-    Player *player = (Player *)&entity;
-
-    boundingBox.left = entity.position.x;
-    boundingBox.top = entity.position.y;
+void PlayerPhysicsComponent::update(double elapsed) {
+    boundingBox.left = entity_.position.x;
+    boundingBox.top = entity_.position.y;
 }

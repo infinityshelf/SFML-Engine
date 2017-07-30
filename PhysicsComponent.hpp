@@ -11,10 +11,12 @@
 
 class PhysicsComponent: public Component {
 public:
-    virtual void update(double elapsed, Entity &entity) = 0;
-    void update() override {
+    PhysicsComponent(Entity &entity, World &world): entity_(entity), world_(world) {
 
     }
+protected:
+    World &world_;
+    Entity &entity_;
 };
 
 #endif //SFML_ENGINE_PHYSICSCOMPONENT_HPP

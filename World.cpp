@@ -63,7 +63,7 @@ void World::update(double elapsed, sf::RenderWindow &window) {
         std::cout << "average: " << avg << std::endl;
     }
     for (Entity *entity: entities) {
-        entity->update(elapsed, window);
+        entity->update(elapsed);
     }
     window.display();
 }

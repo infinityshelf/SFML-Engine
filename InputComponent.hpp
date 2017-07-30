@@ -12,10 +12,11 @@
 
 class InputComponent: public Component {
 public:
-    virtual void update(double elapsed, Entity &entity) = 0;
-    void update() override {
+    InputComponent(Entity &entity): entity_(entity) {
 
     }
+protected:
+    Entity &entity_;
 };
 
 

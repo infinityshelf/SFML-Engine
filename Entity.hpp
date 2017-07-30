@@ -10,10 +10,9 @@
 class Entity {
 public:
     sf::Vector2f position;
-    virtual void update(double elapsed, sf::RenderWindow &window_ref) = 0;
+    virtual void update(double elapsed) = 0;
     template <class T>
     T getComponent() {
-        //Component *result;
         T result;
         for (Component *component: components) {
             if (dynamic_cast<T>(component) != NULL) {

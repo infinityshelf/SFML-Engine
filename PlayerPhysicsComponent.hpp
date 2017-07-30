@@ -9,11 +9,11 @@
 
 class PlayerPhysicsComponent: public PhysicsComponent {
 public:
-    PlayerPhysicsComponent();
-    void update(double elapsed, Entity &entity) override;
+    PlayerPhysicsComponent(Entity &entity, World &world);
+    //void update(double elapsed, Entity &entity) override;
+    void update(double elapsed) override;
 private:
     sf::IntRect boundingBox;
-    World *world;
 };
 
 

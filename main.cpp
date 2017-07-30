@@ -21,7 +21,8 @@ int main(int argc, char const *argv[]) {
     window.setTitle("SFML-Engine");
 
     World *world = World::instance();
-    Player *player = new Player(new PlayerGraphicsComponent, new PlayerInputComponent, new PlayerPhysicsComponent);
+    //Player *player = new Player( new PlayerGraphicsComponent(*player, window), new PlayerInputComponent, new PlayerPhysicsComponent);
+    Player *player = new Player(window);
     world->addEntity(player);
 
     sf::Clock elapsedClock;
