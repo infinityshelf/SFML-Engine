@@ -9,7 +9,7 @@
 #include "PlayerInputComponent.hpp"
 #include "PlayerPhysicsComponent.hpp"
 
-const int targetFrameRate = 120;
+const int targetFrameRate = 60;
 
 int main(int argc, char const *argv[]) {
     std::cout << argc << std::endl;
