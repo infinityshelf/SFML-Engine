@@ -8,7 +8,7 @@
 
 class Component {
 public:
-    virtual void update(double elapsed = 1.0) = 0;
+    virtual void update(double elapsed) = 0;
 };
 
 

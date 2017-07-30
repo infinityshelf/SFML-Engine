@@ -9,6 +9,8 @@
 #include "PlayerInputComponent.hpp"
 #include "PlayerPhysicsComponent.hpp"
 
+#define VARIABLE_TIME_STEP true
+
 const int targetFrameRate = 60;
 
 int main(int argc, char const *argv[]) {
@@ -31,7 +33,12 @@ int main(int argc, char const *argv[]) {
     while (window.isOpen()) {
         Input::getInput(window);
         elapsed = elapsedClock.restart().asMilliseconds() / (1000.0 / (double) targetFrameRate);
+#if VARIABLE_TIME_STEP
         world->update(elapsed, window);
+#else
+        world->update(1.0, window);
+#endif
+
     }
 
     return EXIT_SUCCESS;
