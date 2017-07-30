@@ -13,3 +13,7 @@ Component::Component() {
 bool Component::operator==(Component &other) {
     return this->identifier_ == other.identifier_;
 }
+
+bool Component::operator!=(Component &other) {
+    return this->identifier_ != other.identifier_;
+}

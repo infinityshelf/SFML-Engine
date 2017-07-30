@@ -4,9 +4,11 @@
 const bool debug = false;
 
 Player::~Player() {
+    /*
     for (Component *component: components) {
         delete component;
     }
+    */
 
 }
 
