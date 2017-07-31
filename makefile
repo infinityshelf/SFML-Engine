@@ -8,8 +8,8 @@ all:
 run: $(PROJECT)
 	./$(PROJECT) $(PROJECT)
 
-$(PROJECT): main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o
-	g++ $(CFLAGS) main.o World.o Player.o Input.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
+$(PROJECT): main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o
+	g++ $(CFLAGS) main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
 
 main.o: main.cpp
 	g++ $(CFLAGS) -c main.cpp
@@ -23,14 +23,23 @@ Player.o: Player.hpp Player.cpp Entity.hpp
 Input.o: Input.cpp Input.hpp InputStruct.hpp
 	g++ $(CFLAGS) -c Input.cpp
 
-PlayerInputComponent.o: PlayerInputComponent.cpp PlayerInputComponent.hpp InputComponent.hpp Input.cpp Input.hpp InputStruct.hpp
+PlayerInputComponent.o: PlayerInputComponent.cpp PlayerInputComponent.hpp InputComponent.hpp Input.cpp Input.hpp InputStruct.hpp Component.o
 	g++ $(CFLAGS) -c PlayerInputComponent.cpp
 
-PlayerGraphicsComponent.o: PlayerGraphicsComponent.cpp PlayerGraphicsComponent.hpp GraphicsComponent.hpp
+PlayerGraphicsComponent.o: PlayerGraphicsComponent.cpp PlayerGraphicsComponent.hpp GraphicsComponent.hpp Component.o
 	g++ $(CFLAGS) -c PlayerGraphicsComponent.cpp
+
+PlayerPhysicsComponent.o: PlayerPhysicsComponent.cpp PlayerPhysicsComponent.hpp PhysicsComponent.hpp Component.o
+	g++ $(CFLAGS) -c PlayerPhysicsComponent.cpp
 
 TextureManager.o: TextureManager.cpp TextureManager.hpp
 	g++ $(CFLAGS) -c TextureManager.cpp	
+
+Component.o: Component.hpp Component.cpp
+	g++ $(CFLAGS) -c Component.cpp
+
+GraphicsComponent.o: GraphicsComponent.hpp GraphicsComponent.cpp Component.o
+	g++ $(CFLAGS) -c GraphicsComponent.cpp
 
 clean:
 	rm *.o

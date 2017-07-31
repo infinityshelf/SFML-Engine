@@ -11,7 +11,7 @@
 
 class PhysicsComponent: public Component {
 public:
-    PhysicsComponent(Entity &entity): entity_(entity), world_(World::instance()), Component() {
+    PhysicsComponent(Entity &entity): Component(), world_(World::instance()), entity_(entity) {
 
     }
 protected:
