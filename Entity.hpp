@@ -15,15 +15,15 @@ public:
     virtual void update(double elapsed) = 0;
     template <class T>
     T getComponent() {
-        T result;
         for (Component *component: components) {
             if (dynamic_cast<T>(component) != NULL) {
-                return  result;
+                return (T)component;
             }
         }
-        std::cout << "No component of class " << typeid(result).name() << std::endl;
+        std::cout << "No component of class " << typeid(T).name() << std::endl;
         return nullptr;
     };
+    virtual void sendMessage(Component *from, Component *to, std::string message) = 0;
 protected:
     std::vector<Component *> components;
 };

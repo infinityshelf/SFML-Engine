@@ -23,5 +23,5 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(Entity &entity) : GraphicsCompo
     textureManager->loadTexture(kRobo, kRoboFilePath);
     this->sprite.setTexture(TextureManager::instance()->getRef(kRobo));
     this->sprite.setTextureRect(sf::IntRect(0,0,35,81));
-    this->sprite.setScale(3.5,3.5);
+    this->sprite.setScale(2,2);
 }

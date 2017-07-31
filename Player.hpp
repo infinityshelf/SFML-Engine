@@ -12,6 +12,7 @@ public:
     Player(sf::RenderWindow &window_ref);
     ~Player();
     void update(double elapsed) override;
+    void sendMessage(Component *from, Component *to, std::string message) override;
 };
 
 #endif

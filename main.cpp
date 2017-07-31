@@ -16,7 +16,7 @@ const int targetFrameRate = 60;
 int main(int argc, char const *argv[]) {
     std::cout << argc << std::endl;
 
-    sf::RenderWindow window(sf::VideoMode(240*4, 160*4, 8), argv[1], sf::Style::Titlebar|sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(640, 480, 8), argv[1], sf::Style::Titlebar|sf::Style::Close);
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
@@ -24,6 +24,10 @@ int main(int argc, char const *argv[]) {
     GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();
+    sf::IntRect collider0(0,0,32,32);
+    world->addCollidable(&collider0);
+    sf::IntRect collider1(0,480-32,32,32);
+    world->addCollidable(&collider1);
     Player *player = new Player(window);
     world->addEntity(player);
 

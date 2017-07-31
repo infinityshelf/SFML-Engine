@@ -20,6 +20,9 @@ private:
 public:
     PlayerGraphicsComponent(Entity &entity);
     void update(double elapsed) override;
+    void receiveMessage(Component *from, Component *to, std::string message) override {
+        std::cout << "Component: " << from << typeid(from).name() << " says to: " << to << typeid(to).name() << " message: " << message << std::endl;
+    }
 };
 
 

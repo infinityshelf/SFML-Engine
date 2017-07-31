@@ -19,8 +19,16 @@ void Player::update(double elapsed) {
     }
 }
 
-Player::Player(sf::RenderWindow &window_ref){
-    components.push_back(new PlayerGraphicsComponent(*this));
-    components.push_back(new PlayerPhysicsComponent(*this));
+void Player::sendMessage(Component *from, Component *to, std::string message) {
+    for (Component *comp: components) {
+        if (comp == to) {
+            comp->receiveMessage(to, from, message);
+        }
+    }
+}
+
+Player::Player(sf::RenderWindow &window_ref) {
     components.push_back(new PlayerInputComponent(*this));
+    components.push_back(new PlayerPhysicsComponent(*this));
+    components.push_back(new PlayerGraphicsComponent(*this));
 }

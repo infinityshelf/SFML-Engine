@@ -11,11 +11,18 @@ class Entity;
 
 class Component {
 public:
-    virtual void update(double elapsed) = 0;
+
     Component();
+
+    int identifier() {
+        return identifier_;
+    }
+
     bool operator==(Component &other);
     bool operator!=(Component &other);
-    int identifier() {return identifier_;}
+
+    virtual void update(double elapsed) = 0;
+    virtual void receiveMessage(Component *to, Component *from, std::string message) = 0;
 
 protected:
     static int current_id;
