@@ -13,7 +13,7 @@ const std::string kRobo = "robo";
 const std::string kRoboFilePath = "robo.png";
 
 void PlayerGraphicsComponent::update(double elapsed) {
-    sprite.setPosition(physicsComponent_.position);
+    sprite.setPosition((float) physicsComponent_.position.x, (float) physicsComponent_.position.y);
     assert(GraphicsComponent::s_window != nullptr);
     GraphicsComponent::s_window->draw(sprite);
 }

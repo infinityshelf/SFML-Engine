@@ -15,7 +15,7 @@ void PlayerInputComponent::update(double elapsed) {
     if (debug) std::cout << "Entity: " << &entity_ << " PlayerInputComponent::update" << std::endl;
     if (debug) Input::inputStruct.log();
 
-    proposedVector_.x = proposedVector_.y = 0.0f;
+    proposedVector_.x = proposedVector_.y = 0;
     
     if (Input::inputStruct.right) {
         proposedVector_.x += move * elapsed;
@@ -29,9 +29,9 @@ void PlayerInputComponent::update(double elapsed) {
     if (Input::inputStruct.down) {
         proposedVector_.y += move * elapsed;
     }
-    physicsComponent_.setProposedVector(proposedVector_);
 }
 
 PlayerInputComponent::PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent): physicsComponent_(physicsComponent),InputComponent(entity) {
+    physicsComponent_.setProposedVector(proposedVector_);
 
 }

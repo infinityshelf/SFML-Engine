@@ -16,7 +16,7 @@ public:
     PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent);
 
 private:
-    sf::Vector2f proposedVector_;
+    sf::Vector2i proposedVector_;
     PlayerPhysicsComponent &physicsComponent_;
 };
 
