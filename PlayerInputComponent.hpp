@@ -6,15 +6,18 @@
 #define SFML_ENGINE_PLAYERINPUTCOMPONENT_HPP
 
 #include "InputComponent.hpp"
+#include "PlayerPhysicsComponent.hpp"
+
+class PlayerPhysicsComponent;
 
 class PlayerInputComponent: public InputComponent {
 public:
-    //void update(double elapsed, Entity &entity) override;
     void update(double elapsed) override;
-    PlayerInputComponent(Entity &entity);
-    void receiveMessage(Component *from, Component *to, std::string message) override {
-        std::cout << "Component: " << from << typeid(from).name() << " says to: " << to << typeid(to).name() << " message: " << message << std::endl;
-    }
+    PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent);
+
+private:
+    sf::Vector2f proposedVector_;
+    PlayerPhysicsComponent &physicsComponent_;
 };
 
 

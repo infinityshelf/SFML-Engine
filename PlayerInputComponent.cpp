@@ -14,29 +14,24 @@ const uint8_t move = 5;
 void PlayerInputComponent::update(double elapsed) {
     if (debug) std::cout << "Entity: " << &entity_ << " PlayerInputComponent::update" << std::endl;
     if (debug) Input::inputStruct.log();
-    sf::Vector2f velocity(0,0);
+
+    proposedVector_.x = proposedVector_.y = 0.0f;
+    
     if (Input::inputStruct.right) {
-        entity_.position.x += move * elapsed;
-        velocity.x += move * elapsed;
+        proposedVector_.x += move * elapsed;
     }
     if (Input::inputStruct.left) {
-        entity_.position.x -= move * elapsed;
-        velocity.x -= move * elapsed;
+        proposedVector_.x -= move * elapsed;
     }
     if (Input::inputStruct.up) {
-        entity_.position.y -= move * elapsed;
-        velocity.y -= move * elapsed;
+        proposedVector_.y -= move * elapsed;
     }
     if (Input::inputStruct.down) {
-        entity_.position.y += move * elapsed;
-        velocity.y += move * elapsed;
+        proposedVector_.y += move * elapsed;
     }
-    Component *to = entity_.getComponent<PlayerPhysicsComponent *>();
-    std::stringstream buffer;
-    buffer << "I want to go to x: " << velocity.x << " y: " << velocity.y << std::endl;
-    entity_.sendMessage(this, to, buffer.str());
+    physicsComponent_.setProposedVector(proposedVector_);
 }
 
-PlayerInputComponent::PlayerInputComponent(Entity &entity): InputComponent(entity) {
+PlayerInputComponent::PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent): physicsComponent_(physicsComponent),InputComponent(entity) {
 
 }
