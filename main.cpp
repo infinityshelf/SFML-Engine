@@ -24,11 +24,11 @@ int main(int argc, char const *argv[]) {
     GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();
-    sf::IntRect collider0(0,0,32,32);
+    sf::IntRect collider0(64,64,32,32);
     world->addCollidable(&collider0);
-    sf::IntRect collider1(0,480-32,32,32);
+    sf::IntRect collider1(64,480-128,32,32);
     world->addCollidable(&collider1);
-    Player *player = new Player(window);
+    Player *player = new Player();
     world->addEntity(player);
 
     sf::Clock elapsedClock;
