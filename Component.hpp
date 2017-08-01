@@ -6,13 +6,14 @@
 #define SFML_ENGINE_COMPONENT_HPP
 
 #include "Entity.hpp"
+#include <iostream>
 
 class Entity;
 
 class Component {
 public:
 
-    Component();
+    Component(Entity &parent);
 
     int identifier() {
         return identifier_;
@@ -22,11 +23,10 @@ public:
     bool operator!=(Component &other);
 
     virtual void update(double elapsed) = 0;
-    virtual void receiveMessage(Component *to, Component *from, std::string message) = 0;
-
 protected:
     static int current_id;
     int identifier_;
+    Entity &parent_;
 };
 
 
