@@ -9,7 +9,7 @@
 #include "PlayerInputComponent.hpp"
 #include "PlayerPhysicsComponent.hpp"
 
-#define VARIABLE_TIME_STEP true
+#define VARIABLE_TIME_STEP false
 
 const int targetFrameRate = 60;
 
@@ -24,15 +24,19 @@ int main(int argc, char const *argv[]) {
     GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();
-    sf::IntRect collider0(64,64,32,32);
-    world->addCollidable(&collider0);
-    sf::IntRect collider1(64,480-128,32,32);
-    world->addCollidable(&collider1);
+
+    for (int i = 0; i < 640 / 32; i++) {
+        for (int j = 0; j < 480 / 32; j++) {
+            if (i == 0 || j == 0 || i == (640 / 32) - 1 || j == (480 / 32) - 1) {
+                world->addCollidable(new sf::IntRect(i * 32, j * 32, 32, 32));
+            }
+        }
+    }
     Player *player = new Player();
     world->addEntity(player);
 
-    sf::Clock elapsedClock;
 #if VARIABLE_TIME_STEP
+    sf::Clock elapsedClock;
     static double elapsed;
 #endif
     Input::clearInput();
