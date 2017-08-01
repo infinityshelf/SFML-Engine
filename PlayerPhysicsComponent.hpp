@@ -9,14 +9,15 @@
 
 class PlayerPhysicsComponent: public PhysicsComponent {
 public:
+    sf::Vector2f position;
     PlayerPhysicsComponent(Entity &entity);
-    //void update(double elapsed, Entity &entity) override;
     void update(double elapsed) override;
-    void receiveMessage(Component *from, Component *to, std::string message) override {
-        std::cout << "Component: " << from << typeid(from).name() << " says to: " << to << typeid(to).name() << " message: " << message << std::endl;
+    void setProposedVector(sf::Vector2f &proposedVector) {
+        proposedVector_ = &proposedVector;
     }
 private:
     sf::IntRect boundingBox;
+    sf::Vector2f *proposedVector_;
 };
 
 
