@@ -7,6 +7,7 @@
 
 #include "GraphicsComponent.hpp"
 #include "Player.hpp"
+#include "PlayerPhysicsComponent.hpp"
 
 extern const std::string kRobo;
 extern const std::string kRoboFilePath;
@@ -17,12 +18,10 @@ class PlayerGraphicsComponent: public GraphicsComponent {
 private:
     sf::Sprite sprite;
     sf::Texture texture;
+    PlayerPhysicsComponent &physicsComponent_;
 public:
-    PlayerGraphicsComponent(Entity &entity);
+    PlayerGraphicsComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent);
     void update(double elapsed) override;
-    void receiveMessage(Component *from, Component *to, std::string message) override {
-        std::cout << "Component: " << from << typeid(from).name() << " says to: " << to << typeid(to).name() << " message: " << message << std::endl;
-    }
 };
 
 

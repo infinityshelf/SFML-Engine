@@ -13,12 +13,12 @@ const std::string kRobo = "robo";
 const std::string kRoboFilePath = "robo.png";
 
 void PlayerGraphicsComponent::update(double elapsed) {
-    sprite.setPosition(entity_.position);
+    sprite.setPosition(physicsComponent_.position);
     assert(GraphicsComponent::s_window != nullptr);
     GraphicsComponent::s_window->draw(sprite);
 }
 
-PlayerGraphicsComponent::PlayerGraphicsComponent(Entity &entity) : GraphicsComponent(entity) {
+PlayerGraphicsComponent::PlayerGraphicsComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent) : physicsComponent_(physicsComponent), GraphicsComponent(entity) {
     TextureManager *textureManager = TextureManager::instance();
     textureManager->loadTexture(kRobo, kRoboFilePath);
     this->sprite.setTexture(TextureManager::instance()->getRef(kRobo));
