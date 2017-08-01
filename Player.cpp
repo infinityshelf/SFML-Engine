@@ -4,11 +4,6 @@
 const bool debug = false;
 
 Player::~Player() {
-    /*
-    for (Component *component: components) {
-        delete component;
-    }
-    */
 
 }
 
@@ -19,16 +14,13 @@ void Player::update(double elapsed) {
     }
 }
 
-void Player::sendMessage(Component *from, Component *to, std::string message) {
-    for (Component *comp: components) {
-        if (comp == to) {
-            comp->receiveMessage(to, from, message);
-        }
-    }
-}
+Player::Player() {
 
-Player::Player(sf::RenderWindow &window_ref) {
-    components.push_back(new PlayerInputComponent(*this));
-    components.push_back(new PlayerPhysicsComponent(*this));
-    components.push_back(new PlayerGraphicsComponent(*this));
+    PlayerPhysicsComponent *physicsComponent = new PlayerPhysicsComponent(*this);
+    PlayerGraphicsComponent *graphicsComponent =  new PlayerGraphicsComponent(*this, *physicsComponent);
+    PlayerInputComponent *inputComponent = new PlayerInputComponent(*this, *physicsComponent);
+
+    components.push_back((Component *)inputComponent);
+    components.push_back((Component *)physicsComponent);
+    components.push_back((Component *)graphicsComponent);
 }
