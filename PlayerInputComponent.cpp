@@ -31,7 +31,7 @@ void PlayerInputComponent::update(double elapsed) {
     }
 }
 
-PlayerInputComponent::PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent): physicsComponent_(physicsComponent),InputComponent(entity) {
-    physicsComponent_.setProposedVector(proposedVector_);
+PlayerInputComponent::PlayerInputComponent(Entity &entity): InputComponent(entity) {
+
 
 }

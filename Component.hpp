@@ -23,6 +23,7 @@ public:
     bool operator!=(Component &other);
 
     virtual void update(double elapsed) = 0;
+    virtual void siblingComponentsInitialized() = 0;
 protected:
     static int current_id;
     int identifier_;

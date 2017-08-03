@@ -20,7 +20,10 @@ int main(int argc, char const *argv[]) {
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
-    window.setTitle("SFML-Engine");
+    window.setTitle(argv[1]);
+    sf::Image *icon = new sf::Image();
+    icon->loadFromFile("icon.png");
+    window.setIcon(640,640, icon->getPixelsPtr());
     GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();

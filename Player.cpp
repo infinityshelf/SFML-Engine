@@ -15,12 +15,10 @@ void Player::update(double elapsed) {
 }
 
 Player::Player() {
-
-    PlayerPhysicsComponent *physicsComponent = new PlayerPhysicsComponent(*this);
-    PlayerGraphicsComponent *graphicsComponent =  new PlayerGraphicsComponent(*this, *physicsComponent);
-    PlayerInputComponent *inputComponent = new PlayerInputComponent(*this, *physicsComponent);
-
-    components.push_back((Component *)inputComponent);
-    components.push_back((Component *)physicsComponent);
-    components.push_back((Component *)graphicsComponent);
+    components.push_back(new PlayerInputComponent(*this));
+    components.push_back(new PlayerPhysicsComponent(*this));
+    components.push_back(new PlayerGraphicsComponent(*this));
+    for (Component *component: components) {
+        component->siblingComponentsInitialized();
+    }
 }

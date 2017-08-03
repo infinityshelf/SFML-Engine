@@ -15,6 +15,9 @@ public:
     void setProposedVector(sf::Vector2i &proposedVector) {
         proposedVector_ = &proposedVector;
     }
+    void siblingComponentsInitialized() override {
+
+    }
 private:
     sf::IntRect bbox;
     sf::IntRect projected_bbox;

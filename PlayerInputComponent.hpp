@@ -13,11 +13,13 @@ class PlayerPhysicsComponent;
 class PlayerInputComponent: public InputComponent {
 public:
     void update(double elapsed) override;
-    PlayerInputComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent);
+    PlayerInputComponent(Entity &entity);
 
 private:
     sf::Vector2i proposedVector_;
-    PlayerPhysicsComponent &physicsComponent_;
+    void siblingComponentsInitialized() override {
+        parent_.getComponent<PlayerPhysicsComponent *>()->setProposedVector(proposedVector_);
+    }
 };
 
 

@@ -18,9 +18,13 @@ class PlayerGraphicsComponent: public GraphicsComponent {
 private:
     sf::Sprite sprite;
     sf::Texture texture;
-    PlayerPhysicsComponent &physicsComponent_;
+    sf::Vector2i *position;
+    //PlayerPhysicsComponent *physicsComponent_;
+    void siblingComponentsInitialized() override {
+        position = &parent_.getComponent<PlayerPhysicsComponent *>()->position;
+    }
 public:
-    PlayerGraphicsComponent(Entity &entity, PlayerPhysicsComponent &physicsComponent);
+    PlayerGraphicsComponent(Entity &entity);
     void update(double elapsed) override;
 };
 
