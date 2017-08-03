@@ -3,7 +3,6 @@
 //
 
 #include "PlayerPhysicsComponent.hpp"
-#include "Player.hpp"
 
 const bool debug = false;
 
