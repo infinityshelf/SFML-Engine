@@ -5,9 +5,6 @@
 #include "World.hpp"
 #include "Player.hpp"
 #include "Input.hpp"
-#include "PlayerGraphicsComponent.hpp"
-#include "PlayerInputComponent.hpp"
-#include "PlayerPhysicsComponent.hpp"
 
 #define VARIABLE_TIME_STEP false
 
@@ -20,7 +17,7 @@ int main(int argc, char const *argv[]) {
     window.setFramerateLimit(targetFrameRate);
     window.setVerticalSyncEnabled(true);
     window.setKeyRepeatEnabled(false);
-    window.setTitle(argv[1]);
+    window.setTitle("SFML-Engine");
     sf::Image *icon = new sf::Image();
     icon->loadFromFile("icon.png");
     window.setIcon(640,640, icon->getPixelsPtr());
