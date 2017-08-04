@@ -66,9 +66,9 @@ void World::update(double elapsed, sf::RenderWindow &window) {
         entity->update(elapsed);
     }
     for (sf::IntRect *rect: collidables) {
-        rectShape.setSize(sf::Vector2<float>(rect->width, rect->height));
-        rectShape.setPosition(sf::Vector2<float>(rect->left, rect->top));
-        rectShape.setFillColor(sf::Color(0,0,0,0x50));
+        rectShape.setSize(sf::Vector2f(rect->width, rect->height));
+        rectShape.setPosition(sf::Vector2f(rect->left, rect->top));
+        rectShape.setFillColor(sf::Color(0,0xFF,0,0xFF*.6));
         window.draw(rectShape);
     }
     window.display();
