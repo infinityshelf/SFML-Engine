@@ -6,19 +6,17 @@
 #define SFML_ENGINE_PLAYERINPUTCOMPONENT_HPP
 
 #include "InputComponent.hpp"
-#include "PlayerPhysicsComponent.hpp"
-
-class PlayerPhysicsComponent;
 
 class PlayerInputComponent: public InputComponent {
 public:
+    sf::Vector2i &proposedVector() { return proposedVector_; };
     void update(double elapsed) override;
     PlayerInputComponent(Entity &entity);
 
 private:
     sf::Vector2i proposedVector_;
     void siblingComponentsInitialized() override {
-        parent_.getComponent<PlayerPhysicsComponent *>()->setProposedVector(proposedVector_);
+
     }
 };
 
