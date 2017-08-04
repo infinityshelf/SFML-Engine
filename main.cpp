@@ -11,22 +11,29 @@
 const int targetFrameRate = 60;
 
 int main(int argc, char const *argv[]) {
-    std::cout << argc << std::endl;
-    int width = 160*9;
-    int height = 160*4;
+    int width = 1920;
+    int height = 1080;
+    int blockSize = 60;
+
     sf::RenderWindow window(sf::VideoMode(width, height, 8), argv[1], sf::Style::Titlebar|sf::Style::Close);
+
     window.setFramerateLimit(targetFrameRate);
-    window.setVerticalSyncEnabled(true);
+    window.setVerticalSyncEnabled(false);
     window.setKeyRepeatEnabled(false);
     window.setTitle("SFML-Engine");
+
     GraphicsComponent::setWindow(&window);
 
     World *world = World::instance();
 
-    int blockSize = 32;
     for (int i = 0; i < width / blockSize; i++) {
         for (int j = 0; j < height / blockSize; j++) {
             if (i == 0 || j == 0 || i == (width / blockSize) - 1 || j == (height / blockSize) - 1) {
+                world->addCollidable(new sf::IntRect(i * blockSize, j * blockSize, blockSize, blockSize));
+            }
+
+            if ((i == 2 || i == 3 || i == 4)
+                &&(j == height / blockSize - 5)) {
                 world->addCollidable(new sf::IntRect(i * blockSize, j * blockSize, blockSize, blockSize));
             }
         }
