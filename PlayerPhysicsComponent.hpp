@@ -9,11 +9,19 @@
 
 class PlayerPhysicsComponent: public PhysicsComponent {
 public:
+    sf::Vector2i position;
     PlayerPhysicsComponent(Entity &entity);
-    //void update(double elapsed, Entity &entity) override;
     void update(double elapsed) override;
+    void setProposedVector(sf::Vector2i &proposedVector) {
+        proposedVector_ = &proposedVector;
+    }
+    void siblingComponentsInitialized() override {
+
+    }
 private:
-    sf::IntRect boundingBox;
+    sf::IntRect bbox;
+    sf::IntRect projected_bbox;
+    sf::Vector2i *proposedVector_;
 };
 
 

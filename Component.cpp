@@ -5,7 +5,7 @@
 #include "Component.hpp"
 int Component::current_id = 0;
 
-Component::Component() {
+Component::Component(Entity &parent): parent_(parent) {
     current_id++;
     identifier_ = current_id;
 }

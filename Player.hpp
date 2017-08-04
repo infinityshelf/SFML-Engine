@@ -9,7 +9,7 @@
 
 class Player: public Entity {
 public:
-    Player(sf::RenderWindow &window_ref);
+    Player();
     ~Player();
     void update(double elapsed) override;
 };

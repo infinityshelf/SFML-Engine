@@ -6,20 +6,28 @@
 #define SFML_ENGINE_COMPONENT_HPP
 
 #include "Entity.hpp"
+#include <iostream>
 
 class Entity;
 
 class Component {
 public:
-    virtual void update(double elapsed) = 0;
-    Component();
+
+    Component(Entity &parent);
+
+    int identifier() {
+        return identifier_;
+    }
+
     bool operator==(Component &other);
     bool operator!=(Component &other);
-    int identifier() {return identifier_;}
 
+    virtual void update(double elapsed) = 0;
+    virtual void siblingComponentsInitialized() = 0;
 protected:
     static int current_id;
     int identifier_;
+    Entity &parent_;
 };
 
 

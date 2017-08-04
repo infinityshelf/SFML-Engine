@@ -12,7 +12,7 @@ private:
     World();
     static World *s_instance;
     std::vector<Entity *> entities;
-    std::vector<sf::IntRect *> collidables;
+    sf::RectangleShape rectShape;
 public:
     static World *instance() {
         if (!s_instance) {
@@ -26,6 +26,7 @@ public:
     void removeCollidable(sf::IntRect *rect);
     ~World();
     void update(double elapsed, sf::RenderWindow &window);
+    std::vector<sf::IntRect *> collidables;
 };
 
 #endif

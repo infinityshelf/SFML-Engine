@@ -14,7 +14,7 @@ public:
     static void setWindow(sf::RenderWindow *window) {
         s_window = window;
     }
-    GraphicsComponent(Entity &entity): Component(), entity_(entity) {
+    GraphicsComponent(Entity &entity): Component(entity), entity_(entity) {
 
     }
 protected:

@@ -4,11 +4,6 @@
 const bool debug = false;
 
 Player::~Player() {
-    /*
-    for (Component *component: components) {
-        delete component;
-    }
-    */
 
 }
 
@@ -19,8 +14,11 @@ void Player::update(double elapsed) {
     }
 }
 
-Player::Player(sf::RenderWindow &window_ref){
-    components.push_back(new PlayerGraphicsComponent(*this));
-    components.push_back(new PlayerPhysicsComponent(*this));
+Player::Player() {
     components.push_back(new PlayerInputComponent(*this));
+    components.push_back(new PlayerPhysicsComponent(*this));
+    components.push_back(new PlayerGraphicsComponent(*this));
+    for (Component *component: components) {
+        component->siblingComponentsInitialized();
+    }
 }

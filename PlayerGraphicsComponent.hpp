@@ -7,6 +7,7 @@
 
 #include "GraphicsComponent.hpp"
 #include "Player.hpp"
+#include "PlayerPhysicsComponent.hpp"
 
 extern const std::string kRobo;
 extern const std::string kRoboFilePath;
@@ -17,6 +18,11 @@ class PlayerGraphicsComponent: public GraphicsComponent {
 private:
     sf::Sprite sprite;
     sf::Texture texture;
+    sf::Vector2i *position;
+    //PlayerPhysicsComponent *physicsComponent_;
+    void siblingComponentsInitialized() override {
+        position = &parent_.getComponent<PlayerPhysicsComponent *>()->position;
+    }
 public:
     PlayerGraphicsComponent(Entity &entity);
     void update(double elapsed) override;
