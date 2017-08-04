@@ -55,7 +55,7 @@ void World::removeCollidable(sf::IntRect *rect) {
 }
 
 void World::update(double elapsed, sf::RenderWindow &window) {
-    window.clear(sf::Color(0xff, 0x00, 0xff, 0xFF));
+    window.clear(sf::Color(0x40, 0x00, 0x40, 0xFF));
     static double avg;
     avg = (avg + elapsed) / 2.0;
     if (debug) {
@@ -68,7 +68,7 @@ void World::update(double elapsed, sf::RenderWindow &window) {
     for (sf::IntRect *rect: collidables) {
         rectShape.setSize(sf::Vector2f(rect->width, rect->height));
         rectShape.setPosition(sf::Vector2f(rect->left, rect->top));
-        rectShape.setFillColor(sf::Color(0,0xFF,0,0xFF*.6));
+        rectShape.setFillColor(sf::Color(0,0x80,0x40,0xFF*.5));
         window.draw(rectShape);
     }
     window.display();
