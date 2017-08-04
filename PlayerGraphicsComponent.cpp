@@ -4,9 +4,9 @@
 
 #include "PlayerGraphicsComponent.hpp"
 #include "TextureManager.hpp"
-#include "World.hpp"
 #include <iostream>
 #include <cassert>
+#include "PlayerPhysicsComponent.hpp"
 
 const bool debug = false;
 const std::string kRobo = "robo";
@@ -24,4 +24,8 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(Entity &entity) : GraphicsCompo
     this->sprite.setTexture(TextureManager::instance()->getRef(kRobo));
     this->sprite.setTextureRect(sf::IntRect(0,0,35,81));
     this->sprite.setScale(2,2);
+}
+
+void PlayerGraphicsComponent::siblingComponentsInitialized() {
+    position = &parent_.getComponent<PlayerPhysicsComponent *>()->getPosition();
 }
