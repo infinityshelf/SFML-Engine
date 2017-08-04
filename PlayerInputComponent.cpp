@@ -8,33 +8,38 @@
 #include "Input.hpp"
 #include "PlayerPhysicsComponent.hpp"
 
-class PlayerPhysicsComponent;
-
 const bool debug = false;
-const uint8_t move = 2;
-const uint8_t jumpHeight = 50;
 
 void PlayerInputComponent::update(double elapsed) {
     if (debug) std::cout << "Entity: " << &entity_ << " PlayerInputComponent::update" << std::endl;
     if (debug) Input::inputStruct.log();
     
     if (Input::inputStruct.right) {
-        proposedVector_.x += move * elapsed;
+        proposedVector_.x += moveSpeed_ * elapsed;
     }
     if (Input::inputStruct.left) {
-        proposedVector_.x -= move * elapsed;
+        proposedVector_.x -= moveSpeed_ * elapsed;
     }
 
     if (Input::inputStruct.left == false && Input::inputStruct.right == false) {
         proposedVector_.x *= 0.5;
     }
 
-    if (Input::inputStruct.upPressed && parent_.getComponent<PlayerPhysicsComponent *>()->onGround()) {
-        proposedVector_.y -= elapsed * jumpHeight;
+    if (Input::inputStruct.upPressed && *grounded_) {
+        proposedVector_.y -= elapsed * jumpHeight_;
     }
 }
 
 PlayerInputComponent::PlayerInputComponent(Entity &entity): InputComponent(entity) {
 
 
+}
+
+void PlayerInputComponent::siblingComponentsInitialized() {
+    PlayerPhysicsComponent *physicsComponent;
+    physicsComponent = entity_.getComponent<PlayerPhysicsComponent *>();
+
+    moveSpeed_ = physicsComponent->moveSpeed();
+    jumpHeight_ = physicsComponent->jumpHeight();
+    grounded_ = physicsComponent->grounded;
 }
