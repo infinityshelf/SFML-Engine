@@ -14,6 +14,17 @@ public:
     PhysicsComponent(Entity &entity): Component(entity), world_(*World::instance()), entity_(entity) {
 
     }
+    const sf::IntRect *placeFree(int x, int y, sf::Rect<int> rect) {
+        rect.left = x;
+        rect.top = y;
+        for (sf::IntRect *collidable : world_.collidables) {
+            if (rect.intersects(*collidable)) {
+                return collidable;
+            }
+        }
+        return nullptr;
+
+    }
 protected:
     World &world_;
     Entity &entity_;

@@ -24,7 +24,10 @@ set(SOURCE_FILES
         PhysicsComponent.hpp
         PlayerPhysicsComponent.cpp
         PlayerPhysicsComponent.hpp
-        Component.hpp Component.cpp GraphicsComponent.cpp)
+        Component.hpp
+        Component.cpp
+        GraphicsComponent.cpp
+        ComponentMessaging.hpp)
 
 add_executable(SFML-Engine ${SOURCE_FILES})
 
