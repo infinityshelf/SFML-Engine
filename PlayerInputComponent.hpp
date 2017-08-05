@@ -15,9 +15,10 @@ public:
 
 private:
     sf::Vector2i proposedVector_;
-    void siblingComponentsInitialized() override {
-
-    }
+    void siblingComponentsInitialized() override;
+    int moveSpeed_;
+    int jumpHeight_;
+    const bool *grounded_;
 };
 
 

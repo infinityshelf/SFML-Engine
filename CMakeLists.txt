@@ -27,7 +27,7 @@ set(SOURCE_FILES
         Component.hpp
         Component.cpp
         GraphicsComponent.cpp
-        ComponentMessaging.hpp)
+        ComponentMessaging.hpp Game.cpp Game.hpp)
 
 add_executable(SFML-Engine ${SOURCE_FILES})
 
