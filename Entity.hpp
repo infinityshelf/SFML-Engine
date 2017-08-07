@@ -1,7 +1,6 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
-#include "World.hpp"
 #include <vector>
 #include "Component.hpp"
 #include <iostream>
