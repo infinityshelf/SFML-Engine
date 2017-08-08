@@ -8,8 +8,8 @@ all:
 run: $(PROJECT)
 	./$(PROJECT) $(PROJECT)
 
-$(PROJECT): main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o
-	g++ $(CFLAGS) main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
+$(PROJECT): main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o Game.o GameWorld.o CollidableManager.o EntityManager.o
+	g++ $(CFLAGS) main.o World.o Player.o Input.o Component.o PlayerInputComponent.o PlayerGraphicsComponent.o TextureManager.o PlayerPhysicsComponent.o GraphicsComponent.o Game.o GameWorld.o CollidableManager.o EntityManager.o -o $(PROJECT) -lsfml-window -lsfml-system -lsfml-graphics
 
 main.o: main.cpp
 	g++ $(CFLAGS) -c main.cpp
@@ -40,6 +40,18 @@ Component.o: Component.hpp Component.cpp
 
 GraphicsComponent.o: GraphicsComponent.hpp GraphicsComponent.cpp Component.o
 	g++ $(CFLAGS) -c GraphicsComponent.cpp
+
+Game.o: Game.cpp Game.hpp
+	g++ $(CFLAGS) -c Game.cpp
+
+GameWorld.o: GameWorld.cpp GameWorld.hpp
+	g++ $(CFLAGS) -c GameWorld.cpp
+
+CollidableManager.o: CollidableManager.cpp CollidableManager.hpp
+	g++ $(CFLAGS) -c CollidableManager.cpp
+
+EntityManager.o: EntityManager.cpp EntityManager.hpp
+	g++ $(CFLAGS) -c EntityManager.cpp
 
 clean:
 	rm *.o

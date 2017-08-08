@@ -27,7 +27,15 @@ set(SOURCE_FILES
         Component.hpp
         Component.cpp
         GraphicsComponent.cpp
-        ComponentMessaging.hpp Game.cpp Game.hpp)
+        ComponentMessaging.hpp
+        Game.cpp
+        Game.hpp
+        GameWorld.cpp
+        GameWorld.hpp
+        EntityManager.cpp
+        EntityManager.hpp
+        CollidableManager.cpp
+        CollidableManager.hpp)
 
 add_executable(SFML-Engine ${SOURCE_FILES})
 

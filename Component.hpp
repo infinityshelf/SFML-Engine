@@ -7,6 +7,7 @@
 
 #include "Entity.hpp"
 #include <iostream>
+#include <SFML/System.hpp>
 
 class Entity;
 
@@ -27,7 +28,7 @@ public:
 protected:
     static int current_id;
     int identifier_;
-    Entity &parent_;
+    Entity &entity_;
 };
 
 
