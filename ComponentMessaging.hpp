@@ -13,20 +13,43 @@
 
 enum MESSAGE_TYPES {
     VECTOR2i,
-    STRING
+    STRING,
+    INT,
+    FLOAT,
+    BOOL
 };
 
 template <MESSAGE_TYPES> class Message;
+class Describable {
+public:
+    std::string description;
+};
 
-template <> class Message<VECTOR2i> {
+template <> class Message<VECTOR2i>: public Describable {
 public:
     Message<VECTOR2i>(sf::Vector2i &data):data_(data) { }
-    sf::Vector2i &data_;
+    const sf::Vector2i &data_;
 };
-template <> class Message<STRING> {
+template <> class Message<STRING>: public Describable {
 public:
     Message<STRING>(std::string &data):data_(data) { }
     std::string &data_;
+};
+template <> class Message<INT>: public Describable {
+public:
+    Message<INT>(uint16_t &data):data_(data) { }
+    uint16_t &data_;
+};
+template <> class Message<FLOAT>: public Describable {
+public:
+    Message<FLOAT>(float &data):data_(data) { }
+    float &data_;
+};
+
+template <> class Message<BOOL>: public Describable {
+public:
+    Message<BOOL>(bool &data): data_(data) { }
+    bool &data_;
 };
 
 /* MESSAGE HANDLER */

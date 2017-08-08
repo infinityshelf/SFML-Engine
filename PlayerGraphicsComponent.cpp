@@ -13,6 +13,7 @@ const std::string kRobo = "robo";
 const std::string kRoboFilePath = "robo.png";
 
 void PlayerGraphicsComponent::update(double elapsed) {
+    if (debug) std::cout << elapsed << std::endl;
     sprite.setPosition((float) position->x, (float) position->y);
     assert(GraphicsComponent::s_window != nullptr);
     GraphicsComponent::s_window->draw(sprite);
@@ -27,5 +28,5 @@ PlayerGraphicsComponent::PlayerGraphicsComponent(Entity &entity) : GraphicsCompo
 }
 
 void PlayerGraphicsComponent::siblingComponentsInitialized() {
-    position = &parent_.getComponent<PlayerPhysicsComponent *>()->getPosition();
+    position = &entity_.getComponent<PlayerPhysicsComponent *>()->getPosition();
 }

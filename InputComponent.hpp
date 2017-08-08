@@ -12,11 +12,9 @@
 
 class InputComponent: public Component {
 public:
-    InputComponent(Entity &entity): Component(entity), entity_(entity) {
+    InputComponent(Entity &entity): Component(entity) {
 
     }
-protected:
-    Entity &entity_;
 };
 
 

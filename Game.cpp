@@ -6,7 +6,7 @@
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-#include "World.hpp"
+#include "GameWorld.hpp"
 #include "Player.hpp"
 #include "Input.hpp"
 
@@ -15,6 +15,9 @@
 const int targetFrameRate = 60;
 
 int Game::main(int argc, const char *argv[]) {
+    if (argc > 1) {
+        std::cout << argv[1] << std::endl;
+    }
     int width = 1920;
     int height = 1080;
     int blockSize = 60;
@@ -28,7 +31,7 @@ int Game::main(int argc, const char *argv[]) {
 
     GraphicsComponent::setWindow(&window);
 
-    World *world = World::instance();
+    GameWorld *world = GameWorld::instance();
 
     for (int i = 0; i < width / blockSize; i++) {
         for (int j = 0; j < height / blockSize; j++) {

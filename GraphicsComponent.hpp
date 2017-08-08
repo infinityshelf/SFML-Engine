@@ -10,17 +10,15 @@
 #include "Component.hpp"
 
 class GraphicsComponent: public Component {
+protected:
+    static sf::RenderWindow *s_window;
 public:
     static void setWindow(sf::RenderWindow *window) {
         s_window = window;
     }
-    GraphicsComponent(Entity &entity): Component(entity), entity_(entity) {
+    GraphicsComponent(Entity &entity): Component(entity) {
 
     }
-protected:
-    static sf::RenderWindow *s_window;
-    //sf::RenderWindow &renderWindow_;
-    Entity &entity_;
 };
 
 

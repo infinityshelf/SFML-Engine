@@ -4,10 +4,12 @@
 
 #include "PlayerPhysicsComponent.hpp"
 #include "PlayerInputComponent.hpp"
+#include "GameWorld.hpp"
 
 const bool debug = false;
 
 PlayerPhysicsComponent::PlayerPhysicsComponent(Entity &entity): PhysicsComponent(entity) {
+    world_ = GameWorld::instance();
     boundingBox_.width = 35 * 2;
     boundingBox_.height = 81 * 2;
     x = 620 / 2 - boundingBox_.width / 2;
