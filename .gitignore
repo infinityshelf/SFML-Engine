@@ -27,9 +27,7 @@
 *.exe
 *.out
 *.app
-SFML-Engine
 
 cmake-build-debug/**
 .idea/workspace.xml
 .idea/tasks.xml
-Notes/**
