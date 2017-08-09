@@ -21,6 +21,7 @@ struct INPUT_STRUCT {
     bool leftReleased = false;
     bool rightReleased = false;
     bool spacePressed = false;
+    bool leftMouseButtonPressed = false;
     void log() {
         if (upPressed) std::cout << "upPressed" << std::endl;
         if (downPressed) std::cout << "downPressed" << std::endl;
