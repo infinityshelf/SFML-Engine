@@ -13,22 +13,20 @@ class Entity;
 
 class Component {
 public:
-
-    Component(Entity &parent);
-
-    int identifier() {
-        return identifier_;
-    }
+    int &identifier = identifier_;
 
     bool operator==(Component &other);
     bool operator!=(Component &other);
 
     virtual void update(double elapsed) = 0;
     virtual void siblingComponentsInitialized() = 0;
+
 protected:
+    Component(Entity &entity);
     static int current_id;
     int identifier_;
     Entity &entity_;
+
 };
 
 
