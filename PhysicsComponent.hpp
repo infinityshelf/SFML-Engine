@@ -13,20 +13,20 @@
 class PhysicsComponent: public Component {
 protected:
     World *world_;
-    sf::Vector2i position_;
-    int &x_ = position_.x;
-    int &y_ = position_.y;
+    sf::Vector2f position_;
+    float &x_ = position_.x;
+    float &y_ = position_.y;
 
-    sf::Vector2i size_;
-    int &width_ = size_.x;
-    int &height_ = size_.y;
+    sf::Vector2f size_;
+    float &width_ = size_.x;
+    float &height_ = size_.y;
 public:
-    const sf::Vector2i &position = position_;
-    const sf::Vector2i &size = size_;
-    const int width = width_;
-    const int height = height_;
-    const int &x = position_.x;
-    const int &y = position_.y;
+    const sf::Vector2f &position = position_;
+    const sf::Vector2f &size = size_;
+    const float width = width_;
+    const float height = height_;
+    const float &x = position_.x;
+    const float &y = position_.y;
 
     PhysicsComponent(Entity &entity): Component(entity) {
 
@@ -43,7 +43,7 @@ public:
         }
         return nullptr;
     }
-    const sf::IntRect *placeFree(const sf::Vector2i &vector, sf::Rect<int> rect) {
+    const sf::IntRect *placeFree(const sf::Vector2f &vector, sf::Rect<int> rect) {
         return placeFree(vector.x, vector.y, rect);
     }
 };
