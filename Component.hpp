@@ -21,12 +21,13 @@ public:
     virtual void update(double elapsed) = 0;
     virtual void siblingComponentsInitialized() = 0;
 
+    virtual ~Component() { std::cout << "Component destructor called"; }
+
 protected:
     Component(Entity &entity);
     static int current_id;
     int identifier_;
     Entity &entity_;
-
 };
 
 
