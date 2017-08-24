@@ -27,3 +27,18 @@ void CollidableManager::addCollidable(sf::IntRect *rect) {
 void CollidableManager::removeCollidable(sf::IntRect *rect) {
     this->collidables_.erase(std::remove(this->collidables_.begin(), this->collidables_.end(), rect), this->collidables_.end());
 }
+
+const sf::IntRect *CollidableManager::placeFree(const int &x, const int &y, sf::Rect<int> rect) {
+    rect.left = x;
+    rect.top = y;
+    for (sf::IntRect *collidable : collidables) {
+        if (rect.intersects(*collidable)) {
+            return collidable;
+        }
+    }
+    return nullptr;
+}
+
+const sf::IntRect *CollidableManager::placeFree(const sf::Vector2f &vector, sf::Rect<int> rect) {
+    return placeFree(vector.x, vector.y, rect);
+}

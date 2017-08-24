@@ -1,6 +1,4 @@
 set(SFML_ENGINE_SOURCES Entity.hpp
-        World.cpp
-        World.hpp
         Input.cpp
         Input.hpp
         InputStruct.hpp

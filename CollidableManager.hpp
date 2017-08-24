@@ -17,6 +17,9 @@ public:
     void addCollidable(sf::IntRect *rect);
     void removeCollidable(sf::IntRect *rect);
 
+    const sf::IntRect *placeFree(const int &x, const int &y, sf::Rect<int> rect);
+    const sf::IntRect *placeFree(const sf::Vector2f &vector, sf::Rect<int> rect);
+
 };
 
 

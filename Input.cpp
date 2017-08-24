@@ -27,6 +27,7 @@ void Input::clearInput() {
     inputStruct.rightReleased = false;
     inputStruct.spacePressed = false;
     inputStruct.leftMouseButtonPressed = false;
+    inputStruct.leftMouseButtonReleased = false;
 }
 
 void Input::getInput(sf::RenderWindow &window) {
@@ -107,7 +108,12 @@ void Input::getInput(sf::RenderWindow &window) {
             if (event.mouseButton.button == sf::Mouse::Left) {
                 inputStruct.leftMouseButtonPressed = true;
             }
+        } else if (event.type == sf::Event::MouseButtonReleased) {
+            if (event.mouseButton.button == sf::Mouse::Left) {
+                inputStruct.leftMouseButtonReleased = true;
+            }
         }
+
     }
     if (debug) inputStruct.log();
 }
