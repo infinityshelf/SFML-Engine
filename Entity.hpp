@@ -20,7 +20,9 @@ public:
         std::cout << "No component of class " << typeid(T).name() << std::endl;
         return nullptr;
     };
-    virtual ~Entity() { std::cout << "Entity destructor called" << std::endl; };
+    virtual ~Entity() {
+        std::cout << "Entity destructor called" << std::endl;
+    }
 protected:
     std::vector<Component *> components;
 };

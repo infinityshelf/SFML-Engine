@@ -12,7 +12,7 @@
 
 class PhysicsComponent: public Component {
 protected:
-    World *world_;
+    //World *world_;
     sf::Vector2f position_;
     float &x_ = position_.x;
     float &y_ = position_.y;

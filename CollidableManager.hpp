@@ -10,15 +10,15 @@
 
 class CollidableManager {
 protected:
-    std::vector<sf::IntRect *> collidables_;
+    std::vector<sf::Rect<uint16_t> *> collidables_;
     sf::RectangleShape rectShape;
 public:
-    const std::vector<sf::IntRect *> &collidables = collidables_;
-    void addCollidable(sf::IntRect *rect);
-    void removeCollidable(sf::IntRect *rect);
+    const std::vector<sf::Rect<uint16_t> *> &collidables = collidables_;
+    void addCollidable(sf::Rect<uint16_t> *rect);
+    void removeCollidable(sf::Rect<uint16_t> *rect);
 
-    const sf::IntRect *placeFree(const int &x, const int &y, sf::Rect<int> rect);
-    const sf::IntRect *placeFree(const sf::Vector2f &vector, sf::Rect<int> rect);
+    const sf::Rect<uint16_t> *placeFree(const int &x, const int &y, sf::Rect<uint16_t> *rect);
+    const sf::Rect<uint16_t> *placeFree(const sf::Vector2f &vector, sf::Rect<uint16_t> *rect);
 
 };
 
