@@ -23,8 +23,8 @@ protected:
 public:
     const sf::Vector2f &position = position_;
     const sf::Vector2f &size = size_;
-    const float width = width_;
-    const float height = height_;
+    const float &width = width_;
+    const float &height = height_;
     const float &x = position_.x;
     const float &y = position_.y;
 
