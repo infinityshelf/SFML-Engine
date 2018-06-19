@@ -4,10 +4,11 @@
 #include <vector>
 #include "Component.hpp"
 #include <iostream>
+#include "ComponentMessaging.hpp"
 
 class Component;
 
-class Entity {
+class Entity: public Handler, public Dispatcher {
 public:
     virtual void update(double elapsed) = 0;
     template <class T>
