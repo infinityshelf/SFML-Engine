@@ -18,16 +18,16 @@ template <class T>
 class Message: public MessageBase {
 private:
     T data_;
-    std::string title_;
-    std::string description_;
+    std::string name_;
+    //std::string description_;
 public:
-    Message(T data, std::string title, std::string description) {
+    Message(T data, std::string name) {
         data_ = data;
-        title_ = title;
-        description_ = description;
+        name_ = name;
+        //description_ = description;
     }
-    const std::string &title = title_;
-    const std::string &description = description_;
+    const std::string &name = name_;
+    //const std::string &description = description_;
     const T &data = data_;
 
 };
